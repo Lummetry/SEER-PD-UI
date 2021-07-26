@@ -1,0 +1,1 @@
+export { ProductConfigTable } from "./Table";

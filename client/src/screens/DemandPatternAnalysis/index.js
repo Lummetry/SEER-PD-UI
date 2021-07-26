@@ -1,0 +1,1 @@
+export { DemandPatternAnalysis } from "./DemandPatternAnalysis";

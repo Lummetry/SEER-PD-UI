@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2016",
+    "baseUrl": "src",
+    "jsx": "preserve",
+    "paths": {
+      "data/*": ["./src/data/*"]
+    }
+  },
+  "include": ["src"]
+}

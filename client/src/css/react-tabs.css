@@ -1,0 +1,22 @@
+.react-tabs {
+  @apply absolute top-0 right-0 bottom-0 left-0 flex flex-col bg-gray-200;
+} 
+.react-tabs__tab {
+  @apply border-b no-underline flex outline-none items-center cursor-pointer text-gray-500 py-4 pr-2 border-transparent;
+}
+.react-tabs__tab:hover {
+  @apply border-gray-900;
+}
+.react-tabs__tab button {
+  @apply border-b outline-none;
+}
+.react-tabs__tab--selected {
+  @apply border-blue-700 outline-none text-blue-700;
+}
+.react-tabs__tab-panel {
+  @apply bg-gray-200;
+}
+
+.react-tabs__tab-list {
+  margin-bottom: 0;
+}

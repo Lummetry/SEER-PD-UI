@@ -1,0 +1,51 @@
+/* @tailwind base;
+
+@tailwind components;
+@tailwind utilities; */
+
+@import url("https://rsms.me/inter/inter.css");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./react-dates.css";
+/* @import "./react-tabs.css"; */
+@import "./react-daterange-picker.css";
+@import "./lens.css";
+
+@import "rsuite/dist/styles/rsuite-default.css";
+@import "./rc-tree.css";
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+.no-scroll-fix {
+  padding-left: calc(100vw - 100%);
+  padding-right: 0;
+}
+
+.top-modal {
+  top: 3rem;
+}
+
+.font-work-sans {
+  font-family: "Work Sans", sans-serif;
+}
+
+.check-tree-parent {
+  @apply overflow-auto;
+  min-width: 280px;
+}
+
+.check-tree-container {
+  @apply bg-white rounded shadow border-gray-100;
+}
+
+.selected-values {
+  text-overflow: ellipsis;
+}
+
+.ant-select-tree-dropdown {
+  max-height: 200px;
+}

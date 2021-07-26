@@ -1,0 +1,1 @@
+export { LensTable } from "./Table";

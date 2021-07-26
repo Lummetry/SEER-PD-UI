@@ -1,0 +1,1 @@
+export { ProductConfigModal } from "./Modal";

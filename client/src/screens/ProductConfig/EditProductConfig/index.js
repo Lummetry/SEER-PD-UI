@@ -1,0 +1,1 @@
+export { EditConfigModal } from "./Modal";
