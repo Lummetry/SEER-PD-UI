@@ -1,0 +1,12 @@
+[
+  { "location": 366, "product": 7508990, "series": 0 },
+  { "location": 340, "product": 7519336, "series": 1 },
+  { "location": 359, "product": 1053813, "series": 2 },
+  { "location": 366, "product": 7479359, "series": 3 },
+  { "location": 649, "product": 17533590, "series": 4 },
+  { "location": 359, "product": 7509013, "series": 5 },
+  { "location": 1028, "product": 5331234, "series": 6 },
+  { "location": 1027, "product": 7513950, "series": 7 },
+  { "location": 222, "product": 6421741, "series": 8 },
+  { "location": 222, "product": 7521066, "series": 9 }
+]
