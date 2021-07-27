@@ -42,7 +42,6 @@ export const Table = ({
       <thead>{renderTableHeader(headerGroups)}</thead>
       <tbody {...getTableBodyProps()}>
         {rows.map((row, rowIndex) => {
-          // echo("Row este: ", row);
           var rowOnClick;
           if (row.canExpand) {
             rowOnClick = () => row.toggleExpanded();

@@ -3,8 +3,6 @@ import { echo } from "components";
 import { ChevronDownIcon, ChevronRightIcon } from "components/ui/Icons";
 
 export const Cell = ({ row, index: rowIndex, cell }) => {
-  // echo("renderTableCell - Row este: ", row);
-  // echo("renderTableCell - Cell este: ", cell);
   return (
     <td className="p-4" {...cell.getCellProps()}>
       <div className="flex flex-row items-center">

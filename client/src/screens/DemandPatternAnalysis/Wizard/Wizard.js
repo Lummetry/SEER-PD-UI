@@ -37,7 +37,7 @@ export const Wizard = ({ name }) => {
 
   let initialNumberofSteps = stepsFromState;
   const [numSteps, setNumSteps] = useState(initialNumberofSteps);
-  const [historySize, setHistorySize] = useState(14);
+  const [historySize, setHistorySize] = useState(60);
   const initialStartDate = moment(appDates.presentDate)
     .subtract(stepsFromState, "days")
     .toDate();
@@ -214,7 +214,6 @@ export const Wizard = ({ name }) => {
     onSelectByLocation,
     selectType: [selectType, setSelectType]
   };
-  echo("state is: ", state);
 
   return (
     <div className="relative h-full">

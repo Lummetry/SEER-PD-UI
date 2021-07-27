@@ -3,8 +3,6 @@ import { chevronRight2, chevronDown } from "./table-icons";
 import { echo } from "components";
 
 export const renderTableCell = (row, rowIndex, cell) => {
-  // echo("renderTableCell - Row este: ", row);
-  // echo("renderTableCell - Cell este: ", cell);
   return (
     <td className="" {...cell.getCellProps()}>
       <div className="text-right text-gray-600 pr-4 pt-2 pb-2">

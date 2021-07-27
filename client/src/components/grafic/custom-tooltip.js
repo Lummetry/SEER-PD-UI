@@ -8,7 +8,6 @@ const CustomTooltip = props => {
   const startDate = props.data.startDate;
   const dayNumber = props.payload[0].payload.x;
   
-  // echo("Props in tooltip este: ", props);
   let dayString = moment(startDate)
     .add(dayNumber, "days")
     .format("D MMM YYYY");

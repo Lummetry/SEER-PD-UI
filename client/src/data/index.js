@@ -1,6 +1,5 @@
 export {
-  getSeriesData,
-  getSeriesForProductsAndLocations,
+  getSeriesData,  
   getSeriesForProductsAndLocationsPromise,
   getBestBaselines
 } from "./series";

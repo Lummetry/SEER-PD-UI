@@ -99,14 +99,8 @@ export const PageView = forwardRef(
       let echo = echoFor("goBack");
 
       let stackLocal = stack;
-      echo("stack before pop: ", stackLocal);
-      echo("stack.length before pop: ", stackLocal.length);
       let prevPage = stackLocal.pop();
-      echo("prevPage este: ", prevPage);
-      echo("stack after pop: ", stack);
-      echo("stack.length after pop: ", stackLocal.length);
       let lastElement = stackLocal[stackLocal.length - 1];
-      echo("lastElement este: ", lastElement);
       let newIndex = direction === "right" ? state.index - 1 : state.index + 1;
       setState({
         prevPage: {

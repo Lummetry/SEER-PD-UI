@@ -26,17 +26,12 @@ const dateFormatter = inDate => {
 export const Grafic = props => {
   const [activeLines, setActiveLines] = useState(props.activeLines);
 
-  echo("Props pentru grafic este: ", props);
-
   let className = props.className ? props.className : "";
 
   const data = props.row.data.lineValues;
-  echo("Data pentru grafic este: ", data);
   const startDate = props.row.data.startDate;
-  echo("Reality: ", data.Reality.data);
   const handleBrushChange = props => {
     const { startIndex, endIndex } = props;
-    echo("handleBrushChange: ", props);
   };
 
   return (
@@ -68,14 +63,14 @@ export const Grafic = props => {
               />
             );
           })}
-          <Tooltip
+          {/* <Tooltip
             content={
               <CustomTooltip
                 data={props.row.data}
                 getLineColor={props.getLineColor}
               />
             }
-          />
+          /> */}
           <YAxis
             // dataKey="y"
             axisLine={false}

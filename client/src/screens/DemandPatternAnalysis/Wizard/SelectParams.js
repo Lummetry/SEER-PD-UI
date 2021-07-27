@@ -24,9 +24,6 @@ export const SelectParams = params => {
     onParamsSelected
   } = state;
 
-  echo("State is: ", state);
-  echo("numSteps is: ", numSteps);
-
   const handleOnChangeDate = values => {
     echo("handleOnChangeDate - values: ", values);
     // const startDate = moment(values[0]);

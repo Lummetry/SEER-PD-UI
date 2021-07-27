@@ -2,13 +2,12 @@ import moment from "moment";
 import { echo } from "components";
 
 const getLinesObject = (data, bestBaselines) => {
-  // const bestBaselines = data.BENCHMARK.BEST_BASELINES;
-  echo("getLinesObject pentru: ", data, " si baselines: ", bestBaselines);
+    echo("getLinesObject pentru: ", data, " si baselines: ", bestBaselines);
   var linesObject = { best: {}, others: {} };
   linesObject.others.Reality = { desc: "Reality" };
   for (var key in data.RESULTS) {
     let desc = data.RESULTS[key].DESC;
-    if (bestBaselines.includes(key) || key.startsWith("LENS")) {
+    if (bestBaselines.includes(key) || key.startsWith("lummetry_seer")) {
       linesObject.best[key] = { desc: desc };
     } else {
       linesObject.others[key] = { desc: desc };

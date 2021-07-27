@@ -76,10 +76,6 @@ const renderDropDownTopArea = ({
           ReactDOM.findDOMNode(inputReference.current);
         // Close
         if (inputFocused && isOpen) toggleMenu();
-        // if (isOpen) {
-        //   echo("inputReference este: ", inputReference);
-        //   inputReference.current.focus();
-        // }
       }}
     >
       <div className="flex items-center px-2 text-gray-600">
@@ -199,7 +195,6 @@ const renderDropDownBottomArea = ({
 };
 
 const SimpleDropdownItem = props => {
-  // echo("LocationDropdown item - props este: ", props)
   const { isSelected, isActive, ...passOnProps } = props;
   const className =
     "text-sm leading-relaxed pl-6 pr-2 pt-2 first:pt-0 pb-2 " +
@@ -294,10 +289,6 @@ class DropdownSingleSelect extends Component {
             toggleMenu
           } = downshiftProps;
           this.downshift = downshiftProps;
-          // echo(
-          //   "DropdownSingleSelect render - downshiftProps este: ",
-          //   downshiftProps
-          // );
           return (
             <div className="relative">
               {renderDropDownTopArea({

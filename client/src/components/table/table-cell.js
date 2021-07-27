@@ -2,8 +2,6 @@ import React from "react";
 import { plusIcon, minusIcon, chevronRight, chevronRight2, chevronDown } from "./table-icons";
 
 export const renderTableCell = (row, rowIndex, cell) => {
-//   echo("Row este: ", row);
-//   echo("Cell este: ", cell);
   return (
     <td
       className=""

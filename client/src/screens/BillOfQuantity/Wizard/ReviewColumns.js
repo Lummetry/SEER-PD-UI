@@ -26,7 +26,7 @@ export const ReviewColumns = props => {
         <Column className="p-16">
           <Row className="justify-center">
             <p className="font-bold text-3xl p-4 self-center text-center">
-              LENS will create a report with
+              SEER will create a report with
               <br />
               the following columns
             </p>

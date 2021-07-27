@@ -66,7 +66,6 @@ const renderDropDownTopArea = ({
       onClick={() => {
         toggleMenu();
         if (isOpen) {
-          echo("inputReference este: ", inputReference);
           inputReference.current.focus();
         }
       }}

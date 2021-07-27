@@ -72,7 +72,7 @@ export const SelectLocationsControl = ({ onChange, data }) => {
       } else {
         // echo("Getting products for location: ", location);
         let productsForLocation = await getProductsForLocations([location]);
-        // echo("Got products for location: ", productsForLocation);
+        echo("Got products for location: ", productsForLocation);
         const productsChildren = productsForLocation.map(x => ({
           label: x + "",
           value: x
@@ -135,9 +135,7 @@ export const SelectLocationsControl = ({ onChange, data }) => {
   }, [selectedProducts]);
 
   const [handleLocationsSelected] = useState(() => params => {
-    echo("Clicked ok - selected locations", params);
     setSelectedLocations(params.values);
-    echo("Selected locations este acum: ", selectedLocations);
   });
 
   const handleProductsSelected = params => {

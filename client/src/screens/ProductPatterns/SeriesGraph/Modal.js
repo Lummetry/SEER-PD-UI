@@ -47,7 +47,7 @@ export const SeriesGraphModal = ({ modal, ...params }) => {
   const linesDropdown = useRef(null);
   const [activeLines, setActiveLines] = useState([
     "Reality",
-    "LENSv502_VTSTC_4"
+    "lummetry_seer"
   ]);
   const [linesObject, setlinesObject] = useState(null);
 

@@ -52,7 +52,7 @@ export function OutOfStockGraph(props) {
   let { outOfStockOnDay, isOutOfStock } = props;
 
   // let steps = props.row.graphData.steps;
-  let steps = props.row.data.lineValues.LENSv502_VTSTC_4.data;
+  let steps = props.row.data.lineValues.lummetry_seer.data;
   var finalArray;
 
   if (isOutOfStock === false) {

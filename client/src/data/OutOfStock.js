@@ -68,6 +68,7 @@ export const getOutOfStockData = (
       // echo("Descriere: ", newLine.desc.toLowerCase());
       if (newLine.desc.toLowerCase().includes("lummetry")) {
         lummetryModelKey = key;
+        echo(`Lummetry model: ${key}`);
       }
 
       newLine.startDate = startDate;
@@ -127,7 +128,7 @@ export const getOutOfStockData = (
       predictedDemand: predictedDemand,
       realDemand: seriesData.BENCHMARK.SERIES.__TARGET__[seriesIndex],
       confidence:
-        seriesData.BENCHMARK.SERIES[lummetryModelKey].CONFIDENCE[seriesIndex],
+        seriesData.BENCHMARK.SERIES[lummetryModelKey].CONFIDENCE[seriesIndex],      
       ...outOfStockState
     });
   }
@@ -194,7 +195,7 @@ export const getOutOfStockData2 = (
 
     // Add outOfStockData
     let predictedDemand =
-      seriesData.BENCHMARK.SERIES[lummetryModelKey].PRED_QTY[seriesIndex];
+      seriesData.BENCHMARK.SERIES[lummetryModelKey].PRED_QTY[seriesIndex];    
     let predictionArray = lineValues[lummetryModelKey].data;
     let initialStock = currentSeries.initialStock;
     let leadTime = currentSeries.leadTime;

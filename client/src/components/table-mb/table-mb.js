@@ -39,7 +39,6 @@ function Table({ columns, data, onRowClick }) {
       <thead>{renderTableHeader(headerGroups)}</thead>
       <tbody {...getTableBodyProps()}>
         {rows.map((row, rowIndex) => {
-          // echo("Row este: ", row);
           var rowOnClick;
           if (row.canExpand) {
             rowOnClick = () => row.toggleExpanded();

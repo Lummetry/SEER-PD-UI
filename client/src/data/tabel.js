@@ -58,10 +58,10 @@ export const getRowsData = (
         startDate: startDate
       },
       predictedDemand:
-        seriesData.BENCHMARK.SERIES.LENSv502_VTSTC_4.PRED_QTY[seriesIndex],
+        seriesData.BENCHMARK.SERIES.lummetry_seer.PRED_QTY[seriesIndex],
       realDemand: seriesData.BENCHMARK.SERIES.__TARGET__[seriesIndex],
       confidence:
-        seriesData.BENCHMARK.SERIES.LENSv502_VTSTC_4.CONFIDENCE[seriesIndex]
+        seriesData.BENCHMARK.SERIES.lummetry_seer.CONFIDENCE[seriesIndex]
     });
   }
   return rows;
@@ -72,7 +72,7 @@ export const getMBRowsData = seriesData => {
   var rows = [];
   var model;
   for (model in seriesData.BENCHMARK.STATS) {
-    if (bestBaselines.includes(model) || model.startsWith("LENS")) {
+    if (bestBaselines.includes(model) || model.startsWith("lummetry_seer")) {
       let { MCODE, ...values } = seriesData.BENCHMARK.STATS[model];
       let row = {
         model: model,
@@ -83,7 +83,7 @@ export const getMBRowsData = seriesData => {
     }
   }
   for (model in seriesData.BENCHMARK.STATS) {
-    if (model.startsWith("LENS")) {
+    if (model.startsWith("lummetry_seer")) {
       continue;
     }
     if (!bestBaselines.includes(model)) {
@@ -96,6 +96,5 @@ export const getMBRowsData = seriesData => {
       rows.push(row);
     }
   }
-  echo("Rows este: ", rows);
   return rows;
 };

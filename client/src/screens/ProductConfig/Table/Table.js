@@ -57,7 +57,6 @@ export const Table = ({
       </thead>
       <tbody className="block h-200 overflow-y-auto" {...getTableBodyProps()}>
         {rows.map((row, rowIndex) => {
-          echo("Row este: ", row);
           var rowOnClick;
           if (row.canExpand) {
             rowOnClick = () => row.toggleExpanded();
@@ -76,7 +75,6 @@ export const Table = ({
                 }
               >
                 {row.cells.map((cell, index) => {
-                  // echo("Cell este: ", cell);
                   return (
                     <Cell
                       key={row.id + "-" + index}

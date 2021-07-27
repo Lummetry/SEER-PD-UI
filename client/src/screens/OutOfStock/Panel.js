@@ -58,7 +58,6 @@ const OutOfStock = ({ startDate, day }) => {
   let date = moment(startDate)
     .add(day, "days")
     .format("D MMM YYYY");
-  echo("Start date este: ", date);
   return (
     <div
       className={`inline-block p-2 rounded text-center text-xs bg-red-200 font-medium flex flex-row`}
@@ -92,7 +91,7 @@ export const OutOfStockPanel = ({ data, index, row }) => {
 
   const [state, setOutOfStockState] = useState({});
 
-  const predictionArray = currentRow.data.lineValues.LENSv502_VTSTC_4.data;
+  const predictionArray = currentRow.data.lineValues.lummetry_seer.data;
 
   useEffect(() => {
     let outOfStockState = getOutOfStockValues(

@@ -210,8 +210,6 @@ export const Wizard = ({ name }) => {
     modalParent
   };
 
-  echo("state is: ", state);
-
   return (
     <div className="relative h-full">
       <WizardStateProvider state={state}>

@@ -9,7 +9,6 @@ export const Home = params => {
   let echo = echoFor("Home");
   const state = useWizardState();
   let { onSelectByProduct, onSelectByLocation, wizard } = state;
-  echo("state is: ", state);
   useEffect(() => {
     // wizard.current.setDirection("left");
   }, [wizard]);

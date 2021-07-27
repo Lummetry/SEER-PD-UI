@@ -4,10 +4,25 @@ import { echo } from "components";
 
 import axios from "axios";
 
-const CancelToken = axios.CancelToken;
 let source;
 
-const getSeriesData = async (
+const repairJSON = (input) => {
+  if (typeof input === "object") {
+    return input;
+  }
+
+  const inputPatched = input.replace(/\b[Nn]a[Nn]\b/g, "null");
+  var output;
+
+  try {
+    output = JSON.parse(inputPatched);
+  } catch (e) {
+    echo("Error when parsing JSON: ", e);
+  }
+  return output;
+}
+
+const getSeriesDataPrev = async (
   seriesIDs,
   startDateString,
   numSteps,
@@ -27,7 +42,6 @@ const getSeriesData = async (
 
   var location = cached === true ? `/analyze2` : `/analyze`;
 
-  // const response = await lensAPI.post(location, {
   const response = await lensAPI.post(location, {
     DATASET_HANDLE: "?",
     MODEL: "baselines",
@@ -40,10 +54,7 @@ const getSeriesData = async (
     STEPS: numSteps
   });
 
-  // echo("Response este: ", response.data);
-
   var responseData = null;
-  echo("Tipul de response: ", typeof response.data);
 
   if (typeof response.data === "object") {
     return response.data;
@@ -68,7 +79,18 @@ const getSeriesData = async (
   return responseData;
 };
 
-const getBestBaselines = async (seriesIDs, startDateString, numSteps) => {
+const getSeriesData = async (
+  seriesIDs,
+  startDateString,
+  numSteps,
+  historySize
+) => {  
+    const response = await axios.get(`api/lens_ui_response.json`);
+    const result = repairJSON(response.data);    
+    return result;
+}
+
+const getBestBaselinesPrev = async (seriesIDs, startDateString, numSteps) => {
   if (seriesIDs === "") {
     echo("Don't have a seriesIDs yet");
     return;
@@ -88,53 +110,74 @@ const getBestBaselines = async (seriesIDs, startDateString, numSteps) => {
     STEPS: numSteps
   });
 
-  echo("Best baselines response este: ", response.data);
-  // echo("Inlocuim");
   const responseDataPatched = response.data.replace(/\b[Nn]a[Nn]\b/g, "null");
   var responseData = null;
 
   try {
     responseData = JSON.parse(responseDataPatched);
-    // eslint-disable-next-line no-eval
-    //responseData = eval(responseDataPatched);
   } catch (e) {
     echo("Error when parsing JSON: ", e);
-    // You can read e for more info
-    // Let's assume the error is that we already have parsed the payload
-    // So just return that
     responseData = responseDataPatched;
   }
-  // echo("Noul response:");
-  // echo(responseData);
-  echo("Best baselines response filtrat este: ", responseData);
   return responseData.BENCHMARK.BEST_BASELINES;
 };
 
+const getBestBaselines = async (seriesIDs, startDateString, numSteps) => {
+  const response = await axios.get(`api/lens_ui_response.json`);
+  const result = repairJSON(response.data);    
+  return result.BENCHMARK.BEST_BASELINES;  
+}
+
+
 const getSeriesForProductsAndLocations = async (products, locations) => {
-  const series = await nimAPI.post(`/query`, [
-    `series-for-products-and-locations`,
-    {
-      products,
-      locations
-    }
-  ]);
-  return series.data;
+  const response = await axios.get("api/site-item-mappings.json");
+  const mappings = response.data;
+  let getAllProducts = (products.length == 1 && products[0] == -1);
+  let getAllLocations = (locations.length == 1 && locations[0] == -1);
+
+  let result = {};
+
+  if (getAllProducts && getAllLocations){
+    result.data = mappings;
+    return result;
+  }
+
+  let selectedMappings = [];
+
+  if (getAllProducts){
+    mappings.forEach((row)=>{
+      locations.forEach((location)=>{
+        if (location == row.location) selectedMappings.push(row);
+      })
+    })
+    result.data = selectedMappings;
+  }
+  if (getAllLocations){
+    mappings.forEach((row)=>{
+      products.forEach((product)=>{
+        if (product == row.product) selectedMappings.push(row);
+      })
+    })
+    result.data = selectedMappings;
+  }
+  return result;
 };
 
 const getSeriesForProductsAndLocationsPromise = (products, locations) => {
-  const promise = nimAPI.post(`/query`, [
+  /*const promise = nimAPI.post(`/query`, [
     `series-for-products-and-locations`,
     {
       products,
       locations
     }
-  ]);
-  return promise;
+  ]);   
+  return promise;*/
+  return getSeriesForProductsAndLocations(products, locations);
+  
 };
 
 export {
   getSeriesData,
-  getBestBaselines,
-  getSeriesForProductsAndLocations,
+  getBestBaselines,  
   getSeriesForProductsAndLocationsPromise
 };

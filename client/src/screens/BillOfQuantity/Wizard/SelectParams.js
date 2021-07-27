@@ -24,17 +24,12 @@ export const SelectParams = params => {
     onParamsSelected
   } = state;
 
-  // echo("State is: ", state);
-  // echo("numSteps is: ", numSteps);
-
   const handleOnChangeDate = values => {
-    echo("handleOnChangeDate - values: ", values);
     // const startDate = moment(values[0]);
     // const endDate = moment(values[1]);
     // const newSteps =
     //   endDate.endOf("day").diff(startDate.startOf("day"), "days") + 1;
     // echo("newSteps: ", newSteps);
-    echo("calling setDates");
     updateDates(values);
     // setDates(values);
     // dispatch("changeSteps", { newSteps });

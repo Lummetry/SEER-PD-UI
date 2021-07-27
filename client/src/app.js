@@ -99,7 +99,6 @@ export const LensApp = props => {
 
   useEffect(() => {
     const fetchData = async () => {
-      echo("Fetching dates inside effect");
       const dates = await getDates();
       setDates(dates);
       setIsLoading(false);
@@ -114,12 +113,10 @@ export const LensApp = props => {
 
   const initialState = {
     dates: dates,
-    steps: 15,
+    steps: 8, // TODO: change this based on JSON
     sidebar: siderbarRef,
     modalParent: modalParentRef
   };
-
-  echo("initialState: ", initialState);
 
   if (isLoading) {
     return <div className="w-full text-center">Loading...</div>;

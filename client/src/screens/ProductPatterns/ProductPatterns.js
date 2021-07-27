@@ -100,9 +100,7 @@ export const ProductPatterns = () => {
 
   const [bestBaselines, setBestBaselines] = useState([]);
   const [loading, setIsLoading] = useState(false);
-  echo("useAppState este: ", useAppState);
   const [{ dates, steps: stepsFromState }, dispatch] = useAppState();
-  echo("Dates este: ", dates);
   const initialStartDate = moment(dates.presentDate)
     .subtract(stepsFromState, "days")
     .toDate();

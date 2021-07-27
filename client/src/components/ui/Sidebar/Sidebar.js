@@ -63,7 +63,7 @@ export const Sidebar = () => {
             variants={titleVariants}
             className="font-bold text-blue-700 text-lg select-none"
           >
-            LENS
+            SEER
           </motion.span>
         </div>
       </Row>

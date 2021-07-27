@@ -133,9 +133,7 @@ export const SelectProductsControl = ({ onChange, data }) => {
   }, [selectedLocations]);
 
   const [handleProductsSelected] = useState(() => params => {
-    echo("Clicked ok - selected products", params);
     setSelectedProducts(params.values);
-    echo("Selected products este acum: ", selectedProducts);
   });
 
   const handleLocationsSelected = params => {

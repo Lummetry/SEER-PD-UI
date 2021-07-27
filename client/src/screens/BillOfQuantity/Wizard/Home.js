@@ -7,13 +7,10 @@ import { saveSettings } from "data/Settings";
 
 import { BoQIcon } from "components/ui/Icons";
 export const Home = props => {
-  let echo = echoFor("Home");
-  echo("props is: ", props);
+  let echo = echoFor("Home");  
   const state = useWizardState();
   let { wizard, onHomeContinue } = state;
-  echo("state is: ", state);
 
-  echo("wizard is: ", wizard.current);
   if (wizard.current) {
     echo("wizard state is: ", wizard.current.getState());
   }
@@ -38,7 +35,7 @@ export const Home = props => {
             </div>
           </Row>
           <p className="font-medium text-lg p-4 self-center text-center mt-6">
-            Let LENS help you never run out of stock.
+            Let SEER help you never run out of stock.
           </p>
           <p className="font-medium text-base self-center text-center">
             Click below to get started
